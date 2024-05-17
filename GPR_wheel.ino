@@ -74,10 +74,10 @@ void setup()
   xpos = tft.width() / 2; // Middle screen
   ypos = (tft.height() / 2) - tft.fontHeight(GFXFF); // Middle screen
 
-  pinMode(button_up, INPUT);
-  pinMode(button_OK, INPUT);
-  pinMode(button_down, INPUT);
-  pinMode(step_sensor, INPUT);
+  pinMode(button_up, INPUT_PULLUP);
+  pinMode(button_OK, INPUT_PULLUP);
+  pinMode(button_down, INPUT_PULLUP);
+  pinMode(step_sensor, INPUT_PULLUP);
 
   tft.drawString("<c> Mirel Paun 2020", xpos, ypos, GFXFF);
   delay(1000);
