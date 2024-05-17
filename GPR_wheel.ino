@@ -12,10 +12,11 @@
 #define RED       0xF800              //color
 #define GREEN     0x07E0              //color
 #define DKBLUE    0x000D              //color
-#define buton_sus 7
-#define buton_OK 6
-#define buton_jos 5
-#define senzor_pas 3
+#define YELLOW    0xFFE0              // Yellow color
+#define button_up 7
+#define button_OK 6
+#define button_down 5
+#define step_sensor 3
 #define SDC_CS 53                     //SD card control pin
 #include <Wire.h>
 #include <arduinoFFT.h>
@@ -26,9 +27,9 @@
 TFT_HX8357 tft = TFT_HX8357();
 arduinoFFT FFT = arduinoFFT();
 
-File fisier;
+File file;
 
-const word nivele_bat[3] = {384, 392, 401};   //battery voltage threshold levels: low - med1 - med2 (V_bat/5V*1023*0.4)
+const word battery_level[3] = {384, 392, 401};   //battery voltage threshold levels: low - med1 - med2 (V_bat/5V*1023*0.4)
 
 //GPR global parameters
 const double pas_deplasare_GPR = 0.12;    //GPR horizontal step [m]
@@ -73,10 +74,10 @@ void setup()
   xpos = tft.width() / 2; // Middle screen
   ypos = (tft.height() / 2) - tft.fontHeight(GFXFF); // Middle screen
 
-  pinMode(buton_sus, INPUT);
-  pinMode(buton_OK, INPUT);
-  pinMode(buton_jos, INPUT);
-  pinMode(senzor_pas, INPUT);
+  pinMode(button_up, INPUT);
+  pinMode(button_OK, INPUT);
+  pinMode(button_down, INPUT);
+  pinMode(step_sensor, INPUT);
 
   tft.drawString("<c> Mirel Paun 2020", xpos, ypos, GFXFF);
   delay(1000);
@@ -105,17 +106,17 @@ void setup()
       {
         if (Serial.read() == 'A')
         {
-          fisier = SD.open("Date.dat");
-          if (fisier)
+          file = SD.open("Date.dat");
+          if (file)
             //Send stored data
           {
             tft.fillScreen(BLACK);
             tft.drawString("Connected. Sending file!", xpos, ypos, GFXFF);
-            while (fisier.available())
+            while (file.available())
             {
-              Serial.write(fisier.read());
+              Serial.write(file.read());
             }
-            fisier.close();
+            file.close();
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             tft.fillScreen(BLACK);
             tft.drawString("File sent!", xpos, ypos, GFXFF);
@@ -165,7 +166,7 @@ void setup()
   delay(10);
 
   //Propagation velocities menu ------------------------------------------------------------
-  while (!digitalRead(buton_OK)) ;
+  while (!digitalRead(button_OK)) ;
   ypos = 10;
   tft.setFreeFont(FSB12);
   tft.drawString("Select propagation velocity c:", xpos, ypos, GFXFF);
@@ -181,11 +182,11 @@ void setup()
   tft.drawRect(90, ypos, 300, 22, RED); //Draw cursor
   cont = false;
   do {
-    while (digitalRead(buton_sus) && digitalRead(buton_jos) && digitalRead(buton_OK)) {
+    while (digitalRead(button_up) && digitalRead(button_down) && digitalRead(button_OK)) {
       ; // wait
     }
     delay(10);
-    if (!digitalRead(buton_jos))
+    if (!digitalRead(button_down))
     {
       if (i < (sizeof(medii_propagare) / sizeof(medii_propagare[0]) - 1)) {
         i++;
@@ -198,7 +199,7 @@ void setup()
       tft.drawRect(90, ypos, 300, 22, RED);
       delay(500);
     }
-    else if (!digitalRead(buton_sus))
+    else if (!digitalRead(button_up))
     {
       if (i > 0) {
         i--;
@@ -211,7 +212,7 @@ void setup()
       tft.drawRect(90, ypos, 300, 22, RED);
       delay(500);
     }
-    else if (!digitalRead(buton_OK))
+    else if (!digitalRead(button_OK))
     {
       c = viteze[i];
       cont = true;
@@ -224,10 +225,10 @@ void setup()
   {
     //Verify file existance, if missing, create it and write speed index
     if (!SD.exists("Date.dat")) {
-      fisier = SD.open("Date.dat", FILE_WRITE);
-      fisier.write(highByte(i));
-      fisier.write(lowByte(i));
-      fisier.close();
+      file = SD.open("Date.dat", FILE_WRITE);
+      file.write(highByte(i));
+      file.write(lowByte(i));
+      file.close();
     }
   }
 
@@ -236,7 +237,7 @@ void setup()
   word ind_adanc_max = sizeof(adancimi) / sizeof(adancimi[0]) - 1;
 
   tft.fillScreen(BLACK);
-  while (!digitalRead(buton_OK)) ;
+  while (!digitalRead(button_OK)) ;
   ypos = 10;
   tft.setFreeFont(FSB12);
   tft.drawString("Select maximum displayed depth:", xpos, ypos, GFXFF);
@@ -260,11 +261,11 @@ void setup()
   cont = false;
   delay(1000);
   do {
-    while (digitalRead(buton_sus) && digitalRead(buton_jos) && digitalRead(buton_OK)) {
+    while (digitalRead(button_up) && digitalRead(button_down) && digitalRead(button_OK)) {
       ; // wait
     }
     delay(10);
-    if (!digitalRead(buton_jos))
+    if (!digitalRead(button_down))
     {
       if (i < ind_adanc_max) {
         i++;
@@ -277,7 +278,7 @@ void setup()
       tft.drawRect(90, ypos, 300, 22, RED);
       delay(500);
     }
-    else if (!digitalRead(buton_sus))
+    else if (!digitalRead(button_up))
     {
       if (i > 0) {
         i--;
@@ -290,7 +291,7 @@ void setup()
       tft.drawRect(90, ypos, 300, 22, RED);
       delay(500);
     }
-    else if (!digitalRead(buton_OK))
+    else if (!digitalRead(button_OK))
     {
       nr_cel_rez_vert = adancimi[i];
       max_adanc = nr_cel_rez_vert * rezolutie + min_adanc;
@@ -309,7 +310,7 @@ void setup()
 
   //Distance menu--------------------------------------------------------------
   tft.fillScreen(BLACK);
-  while (!digitalRead(buton_OK)) ;
+  while (!digitalRead(button_OK)) ;
   ypos = 10;
   tft.setFreeFont(FSB12);
   tft.drawString("Select horizontal distance on screen:", xpos, ypos, GFXFF);
@@ -329,11 +330,11 @@ void setup()
   cont = false;
   delay(1000);
   do {
-    while (digitalRead(buton_sus) && digitalRead(buton_jos) && digitalRead(buton_OK)) {
+    while (digitalRead(button_up) && digitalRead(button_down) && digitalRead(button_OK)) {
       ; // wait
     }
     delay(10);
-    if (!digitalRead(buton_jos))
+    if (!digitalRead(button_down))
     {
       if (i < (sizeof(distante) / sizeof(distante[0]) - 1)) {
         i++;
@@ -346,7 +347,7 @@ void setup()
       tft.drawRect(90, ypos, 300, 22, RED);
       delay(500);
     }
-    else if (!digitalRead(buton_sus))
+    else if (!digitalRead(button_up))
     {
       if (i > 0) {
         i--;
@@ -359,7 +360,7 @@ void setup()
       tft.drawRect(90, ypos, 300, 22, RED);
       delay(500);
     }
-    else if (!digitalRead(buton_OK))
+    else if (!digitalRead(button_OK))
     {
       max_dist = distante[i];
       pas_dist = max_dist / 6;
@@ -375,20 +376,19 @@ void setup()
   tft.fillScreen(BLACK);
   Graph(tft, orig_x, orig_y, latime_grafic, inaltime_grafic, 0, max_dist, pas_dist, min_adanc, max_adanc, pas_adanc, "GPR", "Distance [m]", "Depth [m]");
   afis_card();
-  masurare_afis_bat();
+  check_displ_temp();
 }
 
 //------------------------------------------------------------------------
 void loop()
 {
-  // Wait for step wheel signal
-  while (digitalRead(senzor_pas) == 0)
+  while (digitalRead(step_sensor) == 0)
   {
-    masurare_afis_bat();
+    check_displ_batlevel();
   }
-  while (digitalRead(senzor_pas) == 1)
+  while (digitalRead(step_sensor) == 1)
   {
-    masurare_afis_bat();
+    check_displ_batlevel();
   }
   // If screen is full, delete and start again
   if (((pas % nr_cel_rez_oriz) == 0) && (pas != 0))
@@ -397,7 +397,7 @@ void loop()
     tft.fillScreen(BLACK);
     Graph(tft, orig_x, orig_y, latime_grafic, inaltime_grafic, nr_ecran * max_dist, (nr_ecran + 1) * max_dist, pas_dist, min_adanc, max_adanc, pas_adanc, "GPR", "Distance [m]", "Depth [m]");
     afis_card();
-    masurare_afis_bat();
+    check_displ_batlevel();
   }
   // Generate modulation signal and sample radar echo
   for (i = 0; i <= 4080; i = i + 16) // DAC goes from 0 - 4.98V
@@ -419,14 +419,14 @@ void loop()
   //Store on SD Card
   if (card)
   {
-    fisier = SD.open("Date.dat", FILE_WRITE);
+    file = SD.open("Date.dat", FILE_WRITE);
     for (i = 0; i < nr_esant; i++)
     {
-      fisier.write(highByte(esantioane[i]));
-      fisier.write(lowByte(esantioane[i]));
-      //fisier.flush();
+      file.write(highByte(esantioane[i]));
+      file.write(lowByte(esantioane[i]));
+      //file.flush();
     }
-    fisier.close();
+    file.close();
   }
 
   // Prepare data for FFT
@@ -546,25 +546,25 @@ void afis_card()
   }
 }
 
-void masurare_afis_bat(void)
+void check_displ_batlevel(void)
 {
   //Measure and display battery state
   word val = analogRead(pin_BAT);
-  if (val <= nivele_bat[0]) // low
+  if (val <= battery_level[0]) // low
   {
     tft.drawRect(430, 5, 20, 12, RED);
     tft.drawRect(431, 6, 18, 10, RED);
     tft.fillRect(450, 7, 3, 8, RED);
     tft.fillRect(432, 7, 16, 8, BLACK);
   }
-  else if (val <= nivele_bat[1]) // med1
+  else if (val <= battery_level[1]) // med1
   {
     tft.drawRect(430, 5, 20, 12, WHITE);
     tft.fillRect(450, 7, 3, 8, WHITE);
     tft.fillRect(432, 7, 5, 8, WHITE);
     tft.fillRect(437, 7, 11, 8, BLACK);
   }
-  else if (val <= nivele_bat[2]) // med2
+  else if (val <= battery_level[2]) // med2
   {
     tft.drawRect(430, 5, 20, 12, WHITE);
     tft.fillRect(450, 7, 3, 8, WHITE);
