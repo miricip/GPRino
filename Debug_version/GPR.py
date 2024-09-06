@@ -20,10 +20,10 @@ plt.ion()
 
 debugging_mode = 0                                #debugging 1/0
 
-max_length = 5                                    #maximum ploted horizontal length in meters
+max_length = 6                                    #maximum ploted horizontal length in meters
 max_depth = 5                                     #maximum ploted depth in meters
 offset = 1.2                                      #cables + antenna_to_soil offset in meters
-step = 0.1                                        #horizontal step in meters
+step = 0.12                                       #horizontal step in meters
 velocity = 150000000.0                            #electromagnetic wave velocity in asphalt in meters/second
 
 bandwidth = 587000000.0                                 #GPR bandwidth in Hz; 910 MHz - 323 MHz
