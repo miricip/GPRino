@@ -92,7 +92,7 @@ while True:
             
         else:    
             column = numpy.absolute(numpy.fft.rfft(s_array))        #compute fft magnitude
-            #column[0] = 0.0                                         #remove d.c. component
+            column[0] = 0.0                                         #remove d.c. component
             if save_data=='y':
                 column_conc=numpy.concatenate((numpy.array([iteration*step]), column), axis=0)
                 data_for_save=numpy.hstack((data_for_save,numpy.transpose(numpy.array([column_conc[0:129]]))))  #add as new last column
