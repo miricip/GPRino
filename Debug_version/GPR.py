@@ -8,12 +8,20 @@ import signal
 import numpy
 import matplotlib.pyplot as plt
 
+def create_new_file():
+    # Generates a unique filename based on the current timestamp
+    timestamp = time.strftime("%Y%m%d-%H%M%S")
+    filename = f"output_{timestamp}.txt"
+    print(f"New file created: {filename}")  # Print the name of the new file
+    # Open and return the new file
+    return open(filename, 'w')
+
 def signal_handler(signal, frame):
     print("\nStopped")
     ser.close()                                   #close port
     if save_data=='y':
     # Save data in txt file for RGPR
-        csv_file = open('Data.txt', 'w')
+        csv_file = create_new_file()  # Open a new file for the next data
         try:
             for r in range(len(data_for_save)):
                 for c in range(len(data_for_save[r])):
