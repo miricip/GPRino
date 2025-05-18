@@ -1,0 +1,216 @@
+Post Processor Report
+OrCAD FILE: D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.MAX
+Sun May 18 12:46:43 2025
+
+*********************************************************
+
+Output file: D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.TOP
+
+Aperture totals for D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.TOP:
+---------------------------------------------------------
+D19:  0.0750 ROUND  --       0 Draws,      70 Flashes
+D20:  0.0750 SQUARE --       0 Draws,      12 Flashes
+D24:  0.0300 ROUND  --      22 Draws,       0 Flashes
+D25:  0.0200 ROUND  --       1 Draws,       0 Flashes
+D45:  0.0750 ROUND  --       0 Draws,      14 Flashes
+D53:  0.1100 ROUND  --       0 Draws,       6 Flashes
+---------------------------------------------------------
+  6 D-Codes      -----      23 Draws,     102 Flashes
+
+*********************************************************
+
+Output file: D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.BOT
+
+Aperture totals for D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.BOT:
+---------------------------------------------------------
+D19:  0.0750 ROUND  --       0 Draws,      70 Flashes
+D20:  0.0750 SQUARE --       0 Draws,      12 Flashes
+D24:  0.0300 ROUND  --     307 Draws,       0 Flashes
+D25:  0.0200 ROUND  --      38 Draws,       0 Flashes
+D30:  0.0100 ROUND  --     170 Draws,       0 Flashes
+D31:  0.0500 ROUND  --    1254 Draws,       0 Flashes
+D32:  0.0080 ROUND  --      17 Draws,       0 Flashes
+D33:  0.0250 ROUND  --      25 Draws,       0 Flashes
+D34:  0.0180 ROUND  --      36 Draws,       0 Flashes
+D45:  0.0750 ROUND  --       0 Draws,      14 Flashes
+D48:  0.0750 x 0.0250 OBLONG    -----      19 Flashes
+D49:  0.0750 x 0.0250 RECTANGLE -----       3 Flashes
+D50:  0.0250 x 0.0750 OBLONG    -----       5 Flashes
+D51:  0.0250 x 0.0750 RECTANGLE -----       1 Flashes
+D54:  0.1000 ROUND  --       0 Draws,       6 Flashes
+---------------------------------------------------------
+ 15 D-Codes      -----    1847 Draws,     130 Flashes
+
+*********************************************************
+
+Output file: D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.GND
+
+Aperture totals for D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.GND:
+---------------------------------------------------------
+D19:  0.0750 ROUND  --       0 Draws,      70 Flashes
+D20:  0.0750 SQUARE --       0 Draws,      12 Flashes
+D45:  0.0750 ROUND  --       0 Draws,      14 Flashes
+D52:  0.0400 ROUND  --       4 Draws,       0 Flashes
+D55:  0.1400 ROUND  --       0 Draws,       6 Flashes
+---------------------------------------------------------
+  5 D-Codes      -----       4 Draws,     102 Flashes
+
+*********************************************************
+
+Output file: D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.PWR
+
+Aperture totals for D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.PWR:
+---------------------------------------------------------
+D19:  0.0750 ROUND  --       0 Draws,      70 Flashes
+D20:  0.0750 SQUARE --       0 Draws,      12 Flashes
+D45:  0.0750 ROUND  --       0 Draws,      14 Flashes
+D52:  0.0400 ROUND  --       4 Draws,       0 Flashes
+D55:  0.1400 ROUND  --       0 Draws,       6 Flashes
+---------------------------------------------------------
+  5 D-Codes      -----       4 Draws,     102 Flashes
+
+*********************************************************
+
+Output file: D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.SMT
+
+Aperture totals for D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.SMT:
+---------------------------------------------------------
+D19:  0.0750 ROUND  --       0 Draws,      70 Flashes
+D20:  0.0750 SQUARE --       0 Draws,      12 Flashes
+D45:  0.0750 ROUND  --       0 Draws,      14 Flashes
+D56:  0.1050 ROUND  --       0 Draws,       6 Flashes
+---------------------------------------------------------
+  4 D-Codes      -----       0 Draws,     102 Flashes
+
+*********************************************************
+
+Output file: D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.SMB
+
+Aperture totals for D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.SMB:
+---------------------------------------------------------
+D19:  0.0750 ROUND  --       0 Draws,      70 Flashes
+D20:  0.0750 SQUARE --       0 Draws,      12 Flashes
+D45:  0.0750 ROUND  --       0 Draws,      14 Flashes
+D48:  0.0750 x 0.0250 OBLONG    -----      19 Flashes
+D49:  0.0750 x 0.0250 RECTANGLE -----       3 Flashes
+D50:  0.0250 x 0.0750 OBLONG    -----       5 Flashes
+D51:  0.0250 x 0.0750 RECTANGLE -----       1 Flashes
+D56:  0.1050 ROUND  --       0 Draws,       6 Flashes
+---------------------------------------------------------
+  8 D-Codes      -----       0 Draws,     130 Flashes
+
+*********************************************************
+
+Output file: D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.SPT
+
+Aperture totals for D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.SPT:
+---------------------------------------------------------
+No data on this layer
+---------------------------------------------------------
+  0 D-Codes      -----       0 Draws,       0 Flashes
+
+*********************************************************
+
+Output file: D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.SPB
+
+Aperture totals for D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.SPB:
+---------------------------------------------------------
+D48:  0.0750 x 0.0250 OBLONG    -----      19 Flashes
+D49:  0.0750 x 0.0250 RECTANGLE -----       3 Flashes
+D50:  0.0250 x 0.0750 OBLONG    -----       5 Flashes
+D51:  0.0250 x 0.0750 RECTANGLE -----       1 Flashes
+---------------------------------------------------------
+  4 D-Codes      -----       0 Draws,      28 Flashes
+
+*********************************************************
+
+Output file: D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.SST
+
+Aperture totals for D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.SST:
+---------------------------------------------------------
+D30:  0.0100 ROUND  --      81 Draws,       0 Flashes
+D32:  0.0080 ROUND  --     651 Draws,       0 Flashes
+---------------------------------------------------------
+  2 D-Codes      -----     732 Draws,       0 Flashes
+
+*********************************************************
+
+Output file: D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.SSB
+
+Aperture totals for D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.SSB:
+---------------------------------------------------------
+D32:  0.0080 ROUND  --     159 Draws,       0 Flashes
+---------------------------------------------------------
+  1 D-Codes      -----     159 Draws,       0 Flashes
+
+*********************************************************
+
+Output file: D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.AST
+
+Aperture totals for D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.AST:
+---------------------------------------------------------
+D19:  0.0750 ROUND  --       0 Draws,      68 Flashes
+D20:  0.0750 SQUARE --       0 Draws,      12 Flashes
+D30:  0.0100 ROUND  --      90 Draws,       0 Flashes
+D32:  0.0080 ROUND  --    1453 Draws,       0 Flashes
+D52:  0.0400 ROUND  --       4 Draws,       0 Flashes
+---------------------------------------------------------
+  5 D-Codes      -----    1547 Draws,      80 Flashes
+
+*********************************************************
+
+Output file: D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.ASB
+
+Aperture totals for D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.ASB:
+---------------------------------------------------------
+D19:  0.0750 ROUND  --       0 Draws,      68 Flashes
+D20:  0.0750 SQUARE --       0 Draws,      12 Flashes
+D32:  0.0080 ROUND  --     374 Draws,       0 Flashes
+D48:  0.0750 x 0.0250 OBLONG    -----      19 Flashes
+D49:  0.0750 x 0.0250 RECTANGLE -----       3 Flashes
+D50:  0.0250 x 0.0750 OBLONG    -----       5 Flashes
+D51:  0.0250 x 0.0750 RECTANGLE -----       1 Flashes
+D52:  0.0400 ROUND  --       4 Draws,       0 Flashes
+---------------------------------------------------------
+  8 D-Codes      -----     378 Draws,     108 Flashes
+
+*********************************************************
+
+Output file: D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.DRD
+
+Aperture totals for D:\DATE\GPR\HARDWARE\SECTIUNEA_LF\GPR_LF.DRD:
+---------------------------------------------------------
+D30:  0.0100 ROUND  --     498 Draws,       0 Flashes
+D52:  0.0400 ROUND  --       4 Draws,       0 Flashes
+---------------------------------------------------------
+  2 D-Codes      -----     502 Draws,       0 Flashes
+
+
+*********************************************************
+
+Aperture totals for entire project:
+---------------------------------------------------------
+D19:  0.0750 ROUND  --       0 Draws,     556 Flashes
+D20:  0.0750 SQUARE --       0 Draws,      96 Flashes
+D24:  0.0300 ROUND  --     329 Draws,       0 Flashes
+D25:  0.0200 ROUND  --      39 Draws,       0 Flashes
+D30:  0.0100 ROUND  --     839 Draws,       0 Flashes
+D31:  0.0500 ROUND  --    1254 Draws,       0 Flashes
+D32:  0.0080 ROUND  --    2654 Draws,       0 Flashes
+D33:  0.0250 ROUND  --      25 Draws,       0 Flashes
+D34:  0.0180 ROUND  --      36 Draws,       0 Flashes
+D45:  0.0750 ROUND  --       0 Draws,      84 Flashes
+D48:  0.0750 x 0.0250 OBLONG    -----      76 Flashes
+D49:  0.0750 x 0.0250 RECTANGLE -----      12 Flashes
+D50:  0.0250 x 0.0750 OBLONG    -----      20 Flashes
+D51:  0.0250 x 0.0750 RECTANGLE -----       4 Flashes
+D52:  0.0400 ROUND  --      20 Draws,       0 Flashes
+D53:  0.1100 ROUND  --       0 Draws,       6 Flashes
+D54:  0.1000 ROUND  --       0 Draws,       6 Flashes
+D55:  0.1400 ROUND  --       0 Draws,      12 Flashes
+D56:  0.1050 ROUND  --       0 Draws,      12 Flashes
+---------------------------------------------------------
+ 19 D-Codes      -----    5196 Draws,     884 Flashes
+
+
+No warnings or errors.
