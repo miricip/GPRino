@@ -17,15 +17,15 @@ ______________________________________________
 3	4	C4,C9,C10,C17	100nF
 4	2	C8,C5	4.7nF
 5	1	C6	150pF
-6	1	C7	0.2uF
+6	1	C7	0.2uF non-polarized
 7	1	C11	4.7uF
 8	1	C12	470nF non-polarized
 9	1	C14	22pF
 10	1	C15	1uF
 11	1	C16	0.47uF / 50V
-12	4	J1,J2,J5,J6	CON2
-13	1	J3	CON3
-14	1	J4	CON5
+12	4	J1,J2,J5,J6	CON2 Female
+13	1	J3	CON3 Female
+14	1	J4	CON5 Female
 15	2	L1,L2	33uH
 16	2	R1,R2	4.3k
 17	1	R3	20k
