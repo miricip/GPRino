@@ -1,11 +1,18 @@
--By pressing and holding the OK key before switching the Power button to the ON position, the GPR device ignores the memory card (goes into operation without storage on the card).
+-By pressing the OK key before switching the Power switch to the ON position and holding it for 5 seconds afterwards, the GPR device ignores the memory card (goes into operation without storage on the card).
 
--To transfer the data file stored on the GPR memory card to the PC, connect the switched-off device (Start button in the OFF position) to the PC via USB, then open the GPR_PC program in which the virtual serial port assigned to the device must be searched and selected, then click on the "Load from GPR" button, which will cause the device to reset and then transfer the data file from the memory card to the PC, followed by the option to delete the data file from the memory card (indicated by the message on the LCD screen of the device, accomplished by pressing the OK button) and display of the GPR image in the PC program (if the option is selected). A dialog window appears for naming and saving the data to a binary .gpr file on the PC.
+-To transfer the data file stored on the GPR memory card to the PC, connect the switched-off device (Power button in the OFF position) to the PC via USB, then open the GPR_PC program in which the virtual serial port assigned to the device must be searched and selected, then click on the "Load from GPR" button. A dialog window appears for naming and saving the data to a binary .gpr file on the PC. After this the device will reset and transfer the data file from the memory card to the PC, followed by the option to delete the data file from the memory card (indicated by the message on the LCD screen of the device, accomplished by pressing the OK button) and display of the GPR image in the PC program (if the option is selected). 
 
-Structure of the PC .gpr file: Identical to the storage format on the card file, binary, the first number (on 2 bytes, unsigned int16 format, big endian) contains the propagation speed index, followed by the time samples (each sample on 2 bytes, unsigned int16 format, big endian). A group of 256 samples is one acquisition (one chirp).
+Structure of the PC .gpr file: Identical to the storage format on the card file, binary, the first number (on 2 bytes, unsigned int16 format, big endian) contains the propagation velocity index, followed by the time samples (each sample on 2 bytes, unsigned int16 format, big endian). A group of 256 samples is one acquisition (one chirp).
 
 The device writes to the same file on the SD card (appends the data to the end of it), if the file exists. The speed index is entered only once when the file is created (the first use of the GPR after the card data file deletion).
 
 -To view an existing file on the PC in the GPR_PC program, click on the "Load from PC" button. In the dialog window that will open, select the desired file.
 
 -To convert the file from the binary format described above into matrix ASCII format, x [m], t [ns], Amplitude (x horizontally, t vertically) to be processed later with programs like RGPR, in the GPR_PC program click the "Convert file" button. In the dialog window that will open, select the desired binary source file and the program will automatically create in its directory an ASCII matrix file with the same name with .txt extension.
+
+RGPR example commands for importing and visualizing a GPRino text file ("D:/test.txt"):
+
+library(RGPR)
+x <- readGPR(dsn = "D:/test.txt")
+x1 <- gain(x, type ="exp",  alpha = 0.01347, t0 = 0, te = 110)
+plot(x1, col = palGPR("grey2"))
