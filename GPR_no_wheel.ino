@@ -2,7 +2,7 @@
 //     <c> Mirel Paun 2020      //
 //////////////////////////////////
 
-//Handheld (GPR v2) version
+//GPRino v2 (Handheld version)
 //ADC sampling period is 224 us, 3.125 (1000/320) scans per second
 //stored file format - the first number (2 bytes) contains the velocity index, the following contain the time domain samples
 //operator travel speed approx. 0.4 m/s
