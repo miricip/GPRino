@@ -1,0 +1,3 @@
+Version intended for hardware testing purposes.
+The raw data collected by the Arduino program is transferred via USB to the PC where it is processed and displayed by the Python script.
+Replace COM14 in the Python script with the correct COM port of the Arduino, as indicated in Arduino IDE or Device Manager.
