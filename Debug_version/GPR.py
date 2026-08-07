@@ -47,7 +47,7 @@ def signal_handler(signal, frame):
 def format_x_axis(val, pos):
     return f"{val * step - max_length:.1f}"
 
-def format_y_axis(val, step):
+def format_y_axis(val, pos):
     return f"{(val - offset_cells) * resolution:.1f}"    
     
     
