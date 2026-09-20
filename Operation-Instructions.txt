@@ -12,11 +12,25 @@ The device writes to the same file on the SD card (appends the data to the end o
 
 -To convert the file from the binary format described above into matrix ASCII format, x [m], t [ns], Amplitude (x horizontally, t vertically) to be processed later with programs like RGPR, in the GPR_PC program click the "Convert file" button. In the dialog window that will open, select the desired binary source file and the program will automatically create in its directory an ASCII matrix file with the same name with .txt extension.
 
+
+
 RGPR example commands for importing and visualizing a GPRino text file ("D:/test.txt"):
 
 library(RGPR)
 x <- readGPR(dsn = "D:/test.txt")
-x1 <- gain(x, type ="exp",  alpha = 0.01347, t0 = 0, te = 110)
-plot(x1, col = palGPR("grey2"))
-
-
+#set velocity
+vel(x) <- 0.12
+#limit to first 500 depth samples
+x1 <- x[1:500, ]
+#dewow filter
+x2 <- dewow(x1, type = "Gaussian", w = 20)
+#depth attenuation compensation
+x3 <- gain(x2, type ="exp", alpha = 0.01347, t0 = 0, te = 110)
+#filter clutter
+data_matrix <- values(x3)
+mean_profile <- rowMeans(data_matrix)
+clean_matrix <- data_matrix - mean_profile
+x_clean_alt <- x3
+values(x_clean_alt) <- clean_matrix
+#plot
+plot(x_clean_alt, col = palGPR("grey2"))
