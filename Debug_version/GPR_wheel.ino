@@ -80,7 +80,7 @@ void loop()
        // Clear samples
       for (i = 0; i < no_of_samples; i++)
       {
-        samples[i] = 0.0;
+        samples[i] = 0;
       }
       for(k = 0; k < stack_ord; k++)
       {
