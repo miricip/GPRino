@@ -430,7 +430,7 @@ void loop() {
   }
   // Clear samples
   for (i = 0; i < no_of_samples; i++) {
-    sig_r[i] = 0.0;
+    sig_r[i] = 0;
   }
   for (k = 0; k < stack_ord; k++) 
   {
